@@ -49,11 +49,11 @@
 
 @keyframes nav-fade {
     from {background-color: rgba(10,58,42, 1);}
-    to {background-color: rgba(10,58,42, 0.4);}
+    to {background-color: rgba(10,58,42, 0.5);}
   }
 
 @keyframes nav-fade-revert {
-    from {background-color: rgba(10,58,42, 0.4);}
+    from {background-color: rgba(10,58,42, 0.5);}
     to {background-color: rgba(10,58,42, 1);}
   }
 
