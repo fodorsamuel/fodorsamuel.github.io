@@ -9,3 +9,12 @@ function handleSubmit(event) {
 
   console.log('submit');
 }
+
+function changeCss () {
+  var bodyElement = document.getElementById("header");
+  this.scrollY > 50 ? bodyElement.style.animationDuration = "0.5s" : bodyElement.style.animationDuration = "0.5s";
+  this.scrollY > 50 ? bodyElement.style.animationName = "nav-fade" : bodyElement.style.animationName = "nav-fade-revert";
+  this.scrollY > 50 ? bodyElement.style.backgroundColor = "rgba(10,58,42, 0.5)" : bodyElement.style.backgroundColor = "rgba(10,58,42, 1)";
+}
+
+window.addEventListener("scroll", changeCss , false);
