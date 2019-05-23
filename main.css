@@ -55,11 +55,21 @@
     border-color: #FF5722;
 }
 
+.btn-dark:not(:disabled):not(.disabled).active, .btn-dark:not(:disabled):not(.disabled):active, .show>.btn-dark.dropdown-toggle, .btn-dark:hover, .navbar-dark .navbar-toggler:active, .navbar-dark .navbar-toggler:hover {
+    color: #fff;
+    background-color: rgb(110, 37, 15);
+    border-color: rgb(110, 37, 15);
+}
+
 .navbar-dark .navbar-toggler {
     background-color: #FF5722;
     border-color: #FF5722;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition-property: color, background-color, border-color, box-shadow;
+    transition-duration: 0.15s, 0.15s, 0.15s, 0.15s;
+    transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+    transition-delay: 0s, 0s, 0s, 0s;
 }
-
 
 .speech-bubble {
     top: 2px;
@@ -86,6 +96,15 @@
 	margin-left: -0.375em;
 }
 
+.jumbotron {
+    background-color: rgba(0,0,0,0);
+    padding: 100px 50px 50px 50px;
+}
+
+.white {
+    color: #fff;
+}
+
 #logo {
     position: absolute;
     width: 90px;
@@ -105,6 +124,11 @@
     color: red;
     opacity: 0;
     display: none;
+}
+
+#about {
+    background-color: #e9ecef;
+    box-shadow: inset 0px -8px 8px -6px rgba(0,0,0,0.7); 
 }
 
 @media (min-width: 768px) {
