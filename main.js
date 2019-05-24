@@ -1,5 +1,4 @@
 var token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJtYWlsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IjVjNjEwYjQ5ZmRhOWRiMmMwODBiZjQ4MyIsImV4cCI6MTU5MDIyMzc2MSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDA2MS8iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMDYxLyJ9.PZICcX238Oup1CK47YXCFumg6FmTLfq-Umdgy8l8ZHk';
-var hammertime = new Hammer(myElement, myOptions);
 
 $(document).ready(function () {
   $("form").submit(handleSubmit);
@@ -7,17 +6,17 @@ $(document).ready(function () {
 
 function handleSubmit(event) {
   event.preventDefault();
-
+  
   var msg = $('#msg').val();
   var email = $('#email').val();
-
+  
   var data = {
     to: "fodorsamuel@gmail.com",
     subject: "Email z CV stránky",
     body: msg,
     from: email
   }
-
+  
   $.ajax({
     type: "POST",
     url: "https://stored.azurewebsites.net/api/mail",
@@ -27,23 +26,23 @@ function handleSubmit(event) {
     data: JSON.stringify(data),
     contentType: "application/json"
   })
-    .done(function () {
-      var bubble = document.getElementById("success");
-      var button = document.getElementById("submitButton");
-      bubble.style.display = "inline";
-      bubble.style.animationName = "email-fade-in";
-      bubble.style.animationDuration = "4s";
-      button.disabled = true;
-    })
-    .fail(function (error) {
-      var bubble = document.getElementById("failure");
-      var button = document.getElementById("submitButton");
-      bubble.style.display = "inline";
-      bubble.style.animationName = "email-fade-in";
-      bubble.style.animationDuration = "4s";
-      button.innerHTML = "Skúste neskôr";
-      button.disabled = true;
-    });
+  .done(function () {
+    var bubble = document.getElementById("success");
+    var button = document.getElementById("submitButton");
+    bubble.style.display = "inline";
+    bubble.style.animationName = "email-fade-in";
+    bubble.style.animationDuration = "4s";
+    button.disabled = true;
+  })
+  .fail(function (error) {
+    var bubble = document.getElementById("failure");
+    var button = document.getElementById("submitButton");
+    bubble.style.display = "inline";
+    bubble.style.animationName = "email-fade-in";
+    bubble.style.animationDuration = "4s";
+    button.innerHTML = "Skúste neskôr";
+    button.disabled = true;
+  });
 }
 
 function navbarFade () {
@@ -51,7 +50,7 @@ function navbarFade () {
   this.scrollY > 50 ? bodyElement.style.animationName = "nav-fade" : bodyElement.style.animationName = "nav-fade-revert";
   this.scrollY > 50 ? bodyElement.style.animationDuration = "0.5s" : bodyElement.style.animationDuration = "0.5s";
   this.scrollY > 50 ? bodyElement.style.opacity = 0.5 : bodyElement.style.opacity = 1;
-
+  
   bodyElement.addEventListener("mouseover", () => {
     if (this.scrollY > 50) {
       bodyElement.style.animationName = "nav-fade-revert";
@@ -59,7 +58,7 @@ function navbarFade () {
       bodyElement.style.opacity = 1;
     }
   });
-
+  
   bodyElement.addEventListener("mouseleave", () => {
     if (this.scrollY > 50) {
       bodyElement.style.animationName = "nav-fade";
@@ -71,6 +70,21 @@ function navbarFade () {
 
 window.addEventListener("scroll", navbarFade , false);
 
-hammertime.on('swipe', (par) => {
-	console.log(par);
-});
+function scroll(par){   
+  var ele = document.getElementById(par);   
+  window.scrollTo(ele.offsetLeft,ele.offsetTop);
+}
+
+if (document.getElementById("about").style.height == "100vh") {
+  var hmAbout = new Hammer(document.getElementById("about"));
+
+  hmAbout.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+
+  hmAbout.on("swipedown", function(ev) {
+      scroll("experience");
+  });
+
+  hammertime.on("swipeup", function(ev) {
+    console.log("swiped up");
+  });
+}

@@ -159,11 +159,15 @@ tr, td {
     }
 }
 
-/*@media only screen and (orientation: portrait) {
+@media only screen and (orientation: portrait) {
     body {
         overflow: hidden;
     }
-}*/
+    
+    #about {
+        height: 100vh;
+    }
+}
 
 @keyframes nav-fade {
     from {opacity: 1;}
