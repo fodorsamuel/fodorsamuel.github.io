@@ -50,10 +50,12 @@ function navbarFade () {
   this.scrollY > 50 ? bodyElement.style.animationName = "nav-fade" : bodyElement.style.animationName = "nav-fade-revert";
   this.scrollY > 50 ? bodyElement.style.animationDuration = "0.5s" : bodyElement.style.animationDuration = "0.5s";
   this.scrollY > 50 ? bodyElement.style.opacity = 0.2 : bodyElement.style.opacity = 1;
-  var bodyElement = document.getElementById("navbar-name");
-  this.scrollY > 50 ? bodyElement.style.animationName = "nav-name-fade" : bodyElement.style.animationName = "nav-name-fade-revert";
-  this.scrollY > 50 ? bodyElement.style.animationDuration = "0.5s" : bodyElement.style.animationDuration = "0.5s";
-  this.scrollY > 50 ? bodyElement.style.opacity = 0 : bodyElement.style.opacity = 1;
+  if (screen.width < "768px") {
+    var navbarName = document.getElementById("navbar-name");
+    this.scrollY > 50 ? navbarName.style.animationName = "nav-name-fade" : navbarName.style.animationName = "nav-name-fade-revert";
+    this.scrollY > 50 ? navbarName.style.animationDuration = "0.5s" : navbarName.style.animationDuration = "0.5s";
+    this.scrollY > 50 ? navbarName.style.opacity = 0 : navbarName.style.opacity = 1;
+  }
   
   bodyElement.addEventListener("mouseover", () => {
     if (this.scrollY > 50) {

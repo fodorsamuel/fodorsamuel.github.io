@@ -163,7 +163,7 @@ tr, td {
     }
 }
 
-@media /*only screen and (orientation: portrait)*/ (max-width: 360px) {
+@media only screen and (orientation: portrait) and (max-width: 480px) {
     body {
         overflow: hidden;
     }
