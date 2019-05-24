@@ -1,4 +1,5 @@
 var token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJtYWlsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IjVjNjEwYjQ5ZmRhOWRiMmMwODBiZjQ4MyIsImV4cCI6MTU5MDIyMzc2MSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDA2MS8iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMDYxLyJ9.PZICcX238Oup1CK47YXCFumg6FmTLfq-Umdgy8l8ZHk';
+var hammertime = new Hammer(myElement, myOptions);
 
 $(document).ready(function () {
   $("form").submit(handleSubmit);
@@ -70,4 +71,6 @@ function navbarFade () {
 
 window.addEventListener("scroll", navbarFade , false);
 
-window.scrollTo(0,1);
+hammertime.on('swipe', (par) => {
+	console.log(par);
+});
