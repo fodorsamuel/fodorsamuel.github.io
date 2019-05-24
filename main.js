@@ -50,7 +50,7 @@ function navbarFade () {
   this.scrollY > 50 ? bodyElement.style.animationName = "nav-fade" : bodyElement.style.animationName = "nav-fade-revert";
   this.scrollY > 50 ? bodyElement.style.animationDuration = "0.5s" : bodyElement.style.animationDuration = "0.5s";
   this.scrollY > 50 ? bodyElement.style.opacity = 0.2 : bodyElement.style.opacity = 1;
-  if (screen.width < "768px") {
+  if (screen.width < 768) {
     var navbarName = document.getElementById("navbar-name");
     this.scrollY > 50 ? navbarName.style.animationName = "nav-name-fade" : navbarName.style.animationName = "nav-name-fade-revert";
     this.scrollY > 50 ? navbarName.style.animationDuration = "0.5s" : navbarName.style.animationDuration = "0.5s";
