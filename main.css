@@ -12,10 +12,6 @@ tr, td {
     border: none !important;
 }
 
-nav {
-    height: 52px !important;
-}
-
 .fleft {
     float: left;
 }
@@ -199,11 +195,11 @@ nav {
 
 @keyframes nav-fade {
     from {opacity: 1;}
-    to {opacity: 0.5;}
+    to {opacity: 0.2;}
 }
 
 @keyframes nav-fade-revert {
-    from {opacity: 0.5;}
+    from {opacity: 0.2;}
     to {opacity: 1;}
 }
 

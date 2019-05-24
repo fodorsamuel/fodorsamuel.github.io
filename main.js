@@ -49,7 +49,7 @@ function navbarFade () {
   var bodyElement = document.getElementById("header");
   this.scrollY > 50 ? bodyElement.style.animationName = "nav-fade" : bodyElement.style.animationName = "nav-fade-revert";
   this.scrollY > 50 ? bodyElement.style.animationDuration = "0.5s" : bodyElement.style.animationDuration = "0.5s";
-  this.scrollY > 50 ? bodyElement.style.opacity = 0.5 : bodyElement.style.opacity = 1;
+  this.scrollY > 50 ? bodyElement.style.opacity = 0.2 : bodyElement.style.opacity = 1;
   var bodyElement = document.getElementById("navbar-name");
   this.scrollY > 50 ? bodyElement.style.animationName = "nav-name-fade" : bodyElement.style.animationName = "nav-name-fade-revert";
   this.scrollY > 50 ? bodyElement.style.animationDuration = "0.5s" : bodyElement.style.animationDuration = "0.5s";
