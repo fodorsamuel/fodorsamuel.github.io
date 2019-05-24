@@ -1,5 +1,5 @@
 table {
-    width: 75%;
+    width: 85%;
     margin: 0 auto;
     border: none !important;
 }
@@ -156,6 +156,12 @@ tr, td {
 @media (min-width: 768px) {
     .logodiv {
         display: flex;
+    }
+}
+
+@media only screen and (orientation: portrait) {
+    body {
+        overflow: hidden;
     }
 }
 
