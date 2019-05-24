@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 table {
     width: 85%;
     margin: 0 auto;
@@ -165,6 +169,22 @@ tr, td {
     }
     
     #about {
+        height: 100vh;
+    }
+
+    #experience {
+        height: 100vh;
+    }
+
+    #certificates {
+        height: 100vh;
+    }
+
+    #education {
+        height: 100vh;
+    }
+
+    #contact {
         height: 100vh;
     }
 }

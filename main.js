@@ -75,16 +75,46 @@ function scroll(par){
   window.scrollTo(ele.offsetLeft,ele.offsetTop);
 }
 
-if (document.getElementById("about").style.height == "100vh") {
-  var hmAbout = new Hammer(document.getElementById("about"));
+var hmAbout = new Hammer(document.getElementById("about"));
+var hmExp = new Hammer(document.getElementById("experience"));
+var hmCert = new Hammer(document.getElementById("certificates"));
+var hmEdu = new Hammer(document.getElementById("education"));
+var hmCon = new Hammer(document.getElementById("contact"));
 
-  hmAbout.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+hmAbout.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+hmExp.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+hmCert.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+hmEdu.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+hmCon.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
 
-  hmAbout.on("swipedown", function(ev) {
-      scroll("experience");
-  });
+hmAbout.on("swipedown", function(ev) {
+  scroll("experience");
+});
 
-  hammertime.on("swipeup", function(ev) {
-    console.log("swiped up");
-  });
-}
+hmExp.on("swipedown", function(ev) {
+  scroll("certificates");
+});
+
+hmExp.on("swipeup", function(ev) {
+  scroll("about");
+});
+
+hmCert.on("swipedown", function(ev) {
+  scroll("education");
+});
+
+hmCert.on("swipeup", function(ev) {
+  scroll("experience");
+});
+
+hmEdu.on("swipedown", function(ev) {
+  scroll("contact");
+});
+
+hmEdu.on("swipeup", function(ev) {
+  scroll("certificates");
+});
+
+hmCon.on("swipeup", function(ev) {
+  scroll("certificates");
+});
