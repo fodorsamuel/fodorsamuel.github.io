@@ -3,7 +3,7 @@ html {
 }
 
 table {
-    width: 85%;
+    width: 95%;
     margin: 0 auto;
     border: none !important;
 }
@@ -163,29 +163,33 @@ tr, td {
     }
 }
 
-@media only screen and (orientation: portrait) {
+@media /*only screen and (orientation: portrait)*/ (max-width: 360px) {
     body {
         overflow: hidden;
+    }
+
+    .table-zrucnosti {
+        height: 100vh;
     }
     
     #about {
         height: 100vh;
     }
 
-    #experience {
+    #experience, #certificates, #contact {
         height: 100vh;
     }
 
-    #certificates {
-        height: 100vh;
+    @keyframes nav-name-fade {
+        0% {opacity: 1;}
+        50% {opacity: 0.5;}
+        100% {opacity: 0;}
     }
 
-    #education {
-        height: 100vh;
-    }
-
-    #contact {
-        height: 100vh;
+    @keyframes nav-name-fade-revert {
+        0% {opacity: 0;}
+        50% {opacity: 0.5;}
+        100% {opacity: 1;}
     }
 }
 

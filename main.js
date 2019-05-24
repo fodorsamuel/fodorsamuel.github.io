@@ -50,6 +50,10 @@ function navbarFade () {
   this.scrollY > 50 ? bodyElement.style.animationName = "nav-fade" : bodyElement.style.animationName = "nav-fade-revert";
   this.scrollY > 50 ? bodyElement.style.animationDuration = "0.5s" : bodyElement.style.animationDuration = "0.5s";
   this.scrollY > 50 ? bodyElement.style.opacity = 0.5 : bodyElement.style.opacity = 1;
+  var bodyElement = document.getElementById("navbar-name");
+  this.scrollY > 50 ? bodyElement.style.animationName = "nav-name-fade" : bodyElement.style.animationName = "nav-name-fade-revert";
+  this.scrollY > 50 ? bodyElement.style.animationDuration = "0.5s" : bodyElement.style.animationDuration = "0.5s";
+  this.scrollY > 50 ? bodyElement.style.opacity = 0 : bodyElement.style.opacity = 1;
   
   bodyElement.addEventListener("mouseover", () => {
     if (this.scrollY > 50) {
@@ -75,46 +79,92 @@ function scroll(par){
   window.scrollTo(ele.offsetLeft,ele.offsetTop);
 }
 
-var hmAbout = new Hammer(document.getElementById("about"));
-var hmExp = new Hammer(document.getElementById("experience"));
-var hmCert = new Hammer(document.getElementById("certificates"));
-var hmEdu = new Hammer(document.getElementById("education"));
-var hmCon = new Hammer(document.getElementById("contact"));
+  var hmAbout = new Hammer(document.getElementById("about"));
 
-hmAbout.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-hmExp.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-hmCert.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-hmEdu.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-hmCon.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+  hmAbout.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
 
-hmAbout.on("swipedown", function(ev) {
-  scroll("experience");
-});
+  hmAbout.on("swipeup", () => {
+      scroll("experience");
+  });
 
-hmExp.on("swipedown", function(ev) {
-  scroll("certificates");
-});
+  var hmExp = new Hammer(document.getElementById("experience"));
 
-hmExp.on("swipeup", function(ev) {
+  hmExp.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+
+  hmExp.on("swipeup", () => {
+    scroll("certificates");
+  });
+
+  hmExp.on("swipedown", () => {
+    scroll("about");
+  });
+
+  var hmCert = new Hammer(document.getElementById("certificates"));
+
+  hmCert.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+
+  hmCert.on("swipeup", () => {
+    scroll("education");
+  });
+
+  hmCert.on("swipedown", () => {
+    scroll("experience");
+  });
+
+  var hmEdu = new Hammer(document.getElementById("jazykove"));
+
+  hmEdu.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+
+  hmEdu.on("swipeup", () => {
+    scroll("pocitacoveIndex");
+  });
+
+  hmEdu.on("swipedown", () => {
+    scroll("certificates");
+  });
+
+  var hmEduu = new Hammer(document.getElementById("pocitacove"));
+
+  hmEduu.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+
+  hmEduu.on("swipeup", () => {
+    scroll("programovacieIndex");
+  });
+
+  hmEduu.on("swipedown", () => {
+    scroll("education");
+  });
+
+  var hmEduuu = new Hammer(document.getElementById("programovacie"));
+
+  hmEduuu.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+
+  hmEduuu.on("swipeup", () => {
+    scroll("ineIndex");
+  });
+
+  hmEduuu.on("swipedown", () => {
+    scroll("pocitacoveIndex");
+  });
+
+  var hmEduuuu = new Hammer(document.getElementById("ine"));
+
+  hmEduuuu.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+
+  hmEduuuu.on("swipeup", () => {
+    scroll("contact");
+  });
+
+  hmEduuuu.on("swipedown", () => {
+    scroll("programovacieIndex");
+  });
+
+  var hmCon = new Hammer(document.getElementById("contact"));
+
+  hmCon.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+
+  hmCon.on("swipedown", () => {
+    scroll("ine");
+  });
+
   scroll("about");
-});
-
-hmCert.on("swipedown", function(ev) {
-  scroll("education");
-});
-
-hmCert.on("swipeup", function(ev) {
-  scroll("experience");
-});
-
-hmEdu.on("swipedown", function(ev) {
-  scroll("contact");
-});
-
-hmEdu.on("swipeup", function(ev) {
-  scroll("certificates");
-});
-
-hmCon.on("swipeup", function(ev) {
-  scroll("certificates");
-});
