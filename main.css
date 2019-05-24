@@ -12,6 +12,10 @@ tr, td {
     border: none !important;
 }
 
+nav {
+    height: 52px !important;
+}
+
 .fleft {
     float: left;
 }
