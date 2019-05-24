@@ -69,3 +69,5 @@ function navbarFade () {
 }
 
 window.addEventListener("scroll", navbarFade , false);
+
+window.scrollTo(0,1);
